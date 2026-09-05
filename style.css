@@ -1,0 +1,23 @@
+body {
+	background-color: rgba(0, 0, 24, 0.8);
+}
+
+h1 {
+	color: white;
+}
+
+canvas {
+	background-color: white;
+}
+
+input {
+	background-color: rgba(0, 0, 28, 0.8);
+	color: white;
+	border: none;
+}
+
+.boton-herramienta {
+	list-style-type: none;
+	margin: 25px 0 0 0;
+	padding 0;
+}
