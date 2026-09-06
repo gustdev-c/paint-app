@@ -3,9 +3,12 @@ contexto=canvas.getContext("2d");
 tamanoPincel = document.getElementById("tamanoPincel");
 color = document.getElementById("color");
 
+
 contexto.strokeStyle="rgba(128,128,128,0.5)";
+contexto.fillStyle="rgba(128,128,128,0.5)";
 color.addEventListener("change", (e) => {
 	contexto.strokeStyle= e.target.value;
+	contexto.fillStyle= e.target.value;
 });
 
 contexto.lineWidth=1;
@@ -14,15 +17,19 @@ tamanoPincel.addEventListener("change", (e) => {
 });
 
 canvas.addEventListener('click',function(e){ //ante un simple click, creo un punto
-contexto.fillRect(e.offsetX,e.offsetY,contexto.lineWidth,contexto.lineWidth); //un rectÃ¡ngulo de tamaÃ±o 1 en las coordenadas
+	contexto.beginPath();
+	contexto.arc(e.offsetX, e.offsetY, contexto.lineWidth, 0, 2 * Math.PI);
+	contexto.fill();
 }); //contemplo tambiÃ©n trazos continuos sin soltar el botÃ³n
 
 canvas.addEventListener('mousemove',function(e){ //al mover el puntero sobre el lienzo
-if(e.buttons) contexto.fillRect(e.offsetX,e.offsetY,1,1); //si el botÃ³n estÃ¡ presionado
+if(e.buttons) contexto.arc(e.offsetX,e.offsetY,contexto.lineWidth, 0, 2 * Math.PI); //si el botÃ³n estÃ¡ presionado
 });
 
 canvas.addEventListener('click',function(e){ //ante un simple click, creo un punto
-contexto.fillRect(e.offsetX,e.offsetY,1,1); //un rectÃ¡ngulo de tamaÃ±o 1 en las coordenadas
+	contexto.beginPath();
+	contexto.arc(e.offsetX, e.offsetY, contexto.lineWidth, 0, 2 * Math.PI);
+	contexto.fill();
 }); //contemplo tambiÃ©n trazos continuos sin soltar el botÃ³n
 
 ahora=false; //flag que indica si el botÃ³n izquierdo estÃ¡ presionado en el evento actual
