@@ -6,14 +6,18 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<center>
-	<h1>Aplicacion de Dibujo con HTML, CSS y JS</h1>
-	<canvas id="canvas" width="1200" height="800" style="border:1px solid"></canvas></center>
+	<nav></nav>
+	<main>
+	<aside>
+	<label for="tamanoPincel">Tamaño Pincel</label>
 	<input type="number" id="tamanoPincel">
 	<input type="color" id="color">
 	<input type="radio" name="tool" value="pincel" checked> Pincel
 	<input type="radio" name="tool" value="borrador"> Borrador
-
+	<input type="radio" name="tool" value="balde"> Balde
+	</aside>
+	<canvas id="canvas" width="1200" height="800" style="border:1px solid"></canvas>
+	</main>
 	<script src="main.js"></script>
 </body>
 

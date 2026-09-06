@@ -2,7 +2,25 @@ body {
 	background-color: rgba(0, 0, 24, 0.8);
 }
 
-h1 {
+main {
+	display: flex;
+	height: 95vh;
+	align-items: flex-start;
+}
+
+nav {
+	width: 100vw;
+	height: 5vh;
+	background-color: blue;
+}
+
+aside {
+	background-color: black;
+	width: 25vw;
+	height: 100%
+}
+
+h1, label {
 	color: white;
 }
 
@@ -16,6 +34,11 @@ input {
 	border: none;
 }
 
+#tamanoPincel {
+	width: 5em;
+	height: 5em;
+	color: white;
+}
 .boton-herramienta {
 	list-style-type: none;
 	margin: 25px 0 0 0;

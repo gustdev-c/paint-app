@@ -22,9 +22,10 @@ canvas.addEventListener('click',function(e){ //ante un simple click, creo un pun
 	} else if(getRadioValue("tool") === "borrador") {
 		contexto.globalCompositeOperation = 'destination-out';
 	}
-		contexto.beginPath();
-		contexto.arc(e.offsetX, e.offsetY, contexto.lineWidth, 0, lineWidth);
-		contexto.fill();
+
+	contexto.beginPath();
+	contexto.arc(e.offsetX, e.offsetY, contexto.lineWidth, 0, lineWidth);
+	contexto.fill();
 }); //contemplo tambiÃ©n trazos continuos sin soltar el botÃ³n
 
 canvas.addEventListener('mousemove',function(e){ //al mover el puntero sobre el lienzo
