@@ -3,8 +3,12 @@ contexto=canvas.getContext("2d");
 tamanoPincel = document.getElementById("tamanoPincel");
 color = document.getElementById("color");
 guardado = document.getElementById("guardado");
+toolBtns = document.getElementsByName("tool");
+herramientaActual = "pincel";
 
 img = new Image();
+
+console.log(herramientaActual);
 
 guardado.addEventListener("click", () => {
 	img = canvas.toDataURL();
@@ -23,22 +27,21 @@ tamanoPincel.addEventListener("change", (e) => {
 	contexto.lineWidth = e.target.value;
 });
 
-canvas.addEventListener('click',function(e){ //ante un simple click, creo un punto
-	if (getRadioValue("tool") === "pincel") {
-		contexto.globalCompositeOperation = 'source-over';
-	} else if(getRadioValue("tool") === "borrador") {
-		contexto.globalCompositeOperation = 'destination-out';
-	}
 
+canvas.addEventListener('click',function(e){ //ante un simple click, creo un punto
 	contexto.beginPath();
-	contexto.arc(e.offsetX, e.offsetY, contexto.lineWidth, 0, lineWidth);
+	contexto.arc(e.offsetX, e.offsetY, contexto.lineWidth, 0, contexto.lineWidth);
 	contexto.fill();
 }); //contemplo tambiÃ©n trazos continuos sin soltar el botÃ³n
-
 canvas.addEventListener('mousemove',function(e){ //al mover el puntero sobre el lienzo
 if(e.buttons) contexto.fillRect(e.offsetX,e.offsetY, 0, 0); //si el botÃ³n estÃ¡ presionado
 });
 
+canvas.addEventListener('click',function(e){ //ante un simple click, creo un punto
+	contexto.beginPath();
+	contexto.arc(e.offsetX, e.offsetY, contexto.lineWidth, 0, contexto.lineWidth);
+	contexto.fill();
+}); //contemplo tambiÃ©n trazos continuos sin soltar el botÃ³n
 ahora=false; //flag que indica si el botÃ³n izquierdo estÃ¡ presionado en el evento actual
 
 canvas.addEventListener('mousedown',function(e){ahora=true;}); //botÃ³n presionado
@@ -65,16 +68,3 @@ antes=false; //el flag del evento anterior, toma el valor de botÃ³n suelto del
 canvas.addEventListener('mouseenter',function(e){ //el curso entrÃ³ al lienzo
 if(!e.buttons) ahora=false; else inicioTrazo(e); //si el botÃ³n no estÃ¡ presionado, no dibujo
 });
-
-function getRadioValue(herramientas)
-{
-    var elements = document.getElementsByName(herramientas);
-    for (var i = 0, l = elements.length; i < l; i++)
-    {
-        if (elements[i].checked)
-        {
-            return elements[i].value;
-        }
-    }
-}
-
