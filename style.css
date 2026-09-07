@@ -1,5 +1,4 @@
 body {
-	background-color: rgba(0, 0, 24, 0.8);
 }
 
 main {
@@ -22,10 +21,6 @@ aside {
 
 h1, label {
 	color: white;
-}
-
-canvas {
-	background-color: white;
 }
 
 input {

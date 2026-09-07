@@ -2,7 +2,14 @@ canvas=document.getElementById('canvas');
 contexto=canvas.getContext("2d");
 tamanoPincel = document.getElementById("tamanoPincel");
 color = document.getElementById("color");
+guardado = document.getElementById("guardado");
 
+img = new Image();
+
+guardado.addEventListener("click", () => {
+	img = canvas.toDataURL();
+	window.open(img);
+});
 
 contexto.strokeStyle="rgba(128,128,128,1.0)";
 contexto.fillStyle="rgba(128,128,128, 1.0)";
